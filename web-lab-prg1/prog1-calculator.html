@@ -1,0 +1,170 @@
+<%-- 
+    Document   : newjsp
+    Created on : 30 Nov, 2020, 8:26:11 AM
+    Author     : Shreyas Gowda
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html> 
+<head> 
+	<script> 
+		//function that display value 
+		function dis(val) 
+		{ 
+			document.getElementById("result").value+=val 
+		} 
+		
+		//function that evaluates the digit and return result 
+		function solve() 
+		{ 
+			let x = document.getElementById("result").value 
+			let y = eval(x) 
+			document.getElementById("result").value = y 
+		} 
+		
+		//function that clear the display 
+		function clr() 
+		{ 
+			document.getElementById("result").value = " " 
+		} 
+	</script> 
+        
+	<!-- for styling -->
+        
+	<style> 
+		.title{ 
+		margin-bottom: 10px; 
+		text-align:center;
+                font-size: 25px;
+                font-family: fantasy;
+		width: 630px; 
+		color:black; 
+		border: solid black 5px;
+                padding: 10px 5px;
+		} 
+
+		input[type="button"] 
+		{ 
+		background-color:black; 
+		color: white; 
+                font-size: 20px;
+                font-family:serif;
+		border: solid black 10px auto; 
+		padding: 5px 70px 40px 30px;
+                width:100% 
+		}
+
+		input[type="text"] 
+		{ 
+		background-color:whitesmoke; 
+		border: solid black 3px;
+                font-size: 35px;
+                padding: 20px 7px 20px 5px;
+		width:95% 
+		} 
+	</style> 
+</head> 
+
+<!-- create table -->
+
+<body> 
+	<div class ="title" > SIMPLE CALCULATOR </div>
+        
+	<table border="7"> 
+		<tr> 
+			<td colspan="3"><input type="text" id="result"/></td> 
+			
+                        <!-- clr() function will call clr to clear all value -->
+			
+                        <td><input type="button" value="CLEAR" onclick="clr()"/> </td> 
+		</tr>
+                
+                <tr>
+                    <td colspan="3"><input type="button" value="AC" onclick="dis('AC')"/> </td>
+                    <td><input type="button" value="/" onclick="dis('/')"/> </td>
+                </tr>
+		<tr> 
+			<!-- create button and assign value to each button -->
+			<!-- dis("1") will call function dis to display value -->
+			<td><input type="button" value="7" onclick="dis('7')"/> </td> 
+			<td><input type="button" value="8" onclick="dis('8')"/> </td> 
+			<td><input type="button" value="9" onclick="dis('9')"/> </td> 
+			<td><input type="button" value="*" onclick="dis('*')"/> </td> 
+		</tr> 
+		<tr> 
+			<td><input type="button" value="4" onclick="dis('4')"/> </td> 
+			<td><input type="button" value="5" onclick="dis('5')"/> </td> 
+			<td><input type="button" value="6" onclick="dis('6')"/> </td> 
+			<td><input type="button" value="-" onclick="dis('-')"/> </td> 
+		</tr> 
+		<tr> 
+			<td><input type="button" value="1" onclick="dis('1')"/> </td> 
+			<td><input type="button" value="2" onclick="dis('2')"/> </td> 
+			<td><input type="button" value="3" onclick="dis('3')"/> </td> 
+			<td><input type="button" value="+" onclick="dis('+')"/> </td> 
+		</tr> 
+		<tr> 
+			<td colspan="2"><input type="button" value="0" onclick="dis('0')"/> </td> 
+			<td><input type="button" value="." onclick="dis('.')"/> </td>
+                        
+                        <!-- solve function call function solve to evaluate value -->
+                        <td><input type="button" value="=" onclick="solve()"/> </td>
+                         
+		</tr> 
+	</table> 
+</body> 
+</html> 
+
+<!--<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="cal.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>CALCULATOR</title>
+    </head>
+    <body>
+        <div id="cal" >
+            <form name="calculator">
+                <input class="button_input" type="text" name="answer"/>
+                
+                <br>
+                <input class="button_AC" type="Button" value="AC" oneclick="calculator.answer.value +='AC'"/>
+                <input class="button_div" type="Button" value="/" oneclick="calculator.answer.value +='/'"/>
+                <br/>
+                
+                <br>
+                <input class="button_7" type="Button" value="7" oneclick="calculator.answer.value +='7'"/>
+                <input class="button_8" type="Button" value="8" oneclick="calculator.answer.value +='8'"/>
+                <input class="button_9" type="Button" value="9" oneclick="calculator.answer.value +='9'"/>
+                <input class="button_mul" type="Button" value="*" oneclick="calculator.answer.value +='*'"/>
+                </br>
+                
+                <br>
+                <input class="button_4" type="Button" value="4" oneclick="calculator.answer.value +='4'"/>
+                <input class="button_5" type="Button" value="5" oneclick="calculator.answer.value +='5'"/>
+                <input class="button_6" type="Button" value="6" oneclick="calculator.answer.value +='6'"/>
+                <input class="button_sub" type="Button" value="-" oneclick="calculator.answer.value +='-'"/>
+                </br>  
+                
+                <br>
+                <input class="button_1" type="Button" value="1" oneclick="calculator.answer.value +='1'"/>
+                <input class="button_2" type="Button" value="2" oneclick="calculator.answer.value +='2'"/>
+                <input class="button_3" type="Button" value="3" oneclick="calculator.answer.value +='3'"/>
+                <input class="button_add" type="Button" value="+" oneclick="calculator.answer.value +='+'"/>
+                <br/>
+                
+                <br>
+                <input class="button_0" type="Button" value="0" oneclick="calculator.answer.value +='0'"/>
+                <input class="button_dec" type="Button" value="." oneclick="calculator.answer.value +='.'"/>
+                <input class="button_equals" type="Button" value="=" oneclick="calculator.answer.value +='='"/>
+                <br/>
+               
+                
+            </form>
+            <div id=" agh">
+                <p>CALCULATOR
+        </div>
+        </div>
+     </body>
+</html>-->
